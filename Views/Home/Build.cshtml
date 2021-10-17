@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Build";
+}
+
+
+@model CreatePost
+
+    <div class="tile --NOVALUE--">
+
+        <strong>Data/Hora:</strong>   @DateTime.Now.ToString("dd/MM/yyy HH:mm:ss")          <br />      <br />
+        <strong>Selecione o arquivo!</strong>
+    </div>
+<br>
+
+<form asp-action="Build" enctype="multipart/form-data">
+    <input asp-for="ImageCaption" title="Arquivo" />
+    <input asp-for="MyImage" />
+    <input type="submit" />
+</form>
+
+@if (ViewData["Message"] != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewData["Message"]");
+            };
+    </script>
+}
